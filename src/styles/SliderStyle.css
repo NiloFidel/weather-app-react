@@ -1,0 +1,115 @@
+.carousel.dragging .card{
+    cursor:grab;
+    user-select: none;
+}
+.carousel.dragging{
+    scroll-behavior: auto;
+    scroll-snap-type: none;
+}
+.carousel.no-transition{
+    scroll-behavior: auto;
+}
+.card .img img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    /* background: linear-gradient(to left top, green, red); */
+    padding: 0 35px;
+}
+.carousel :where(.card, .img){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.carousel .card{
+    scroll-snap-align: start;
+    list-style: none;
+    border-radius: 10px;
+    background: white;
+    height: 330px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding-bottom: 15px;
+    cursor: pointer;
+    border: solid 2px red;
+
+}
+.wrapper .carousel {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% / 4) - 25px);
+    gap: 25px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    border: solid 3px yellow;
+    padding-left: 25px;
+    scroll-behavior: smooth;
+    scrollbar-width: 0;
+}
+.carousel::-webkit-scrollbar{
+    display: none;
+}
+.wrapper{
+    max-width: 2000px;
+    width: 100%;
+    position: relative;
+    border: 2px solid green;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 0;
+}
+.wrapper i {
+    height: 50px;
+    width: 50px;
+    background: brown;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 3px 6px rgba(0, 0, 0. 0.23);
+    z-index: 1;
+}
+.wrapper i:first-child{
+    left: 0px;
+}
+.wrapper i:last-child{
+    right: 0px;
+}
+
+@media screen and (max-width: 900px) {
+    .wrapper .carousel {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: calc((100% / 3) - 25px);
+        gap: 25px;
+        overflow: hidden;
+        border: solid 3px blue;
+        padding-left: 25px;
+    }
+}
+@media screen and (max-width: 480px) {
+    .wrapper .carousel {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: calc((100% / 1) - 25px);
+        gap: 25px;
+        overflow: hidden;
+        border: solid 3px blue;
+        padding-left: 25px;
+    }
+}
